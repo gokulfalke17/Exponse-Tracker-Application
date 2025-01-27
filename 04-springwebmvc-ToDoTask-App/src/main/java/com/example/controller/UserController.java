@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.example.binding.Login;
+import com.example.entity.LoginEntiry;
 import com.example.entity.UserEntity;
 import com.example.repository.UserRepository;
 
@@ -41,7 +41,7 @@ public class UserController {
         return "login";
     }
 	@PostMapping("/login")
-	public String checkLogin(Login login,Model model)
+	public String checkLogin(LoginEntiry login,Model model)
 	{String email=login.getEmail();
 	String password=login.getPassword();
 	UserEntity entity=userRepo.findByEmailAndPassword(email, password);
@@ -62,10 +62,6 @@ public class UserController {
 	}
 		
 	}
-//	public String handleTask(Task task,Model model)
-//	{
-//		return "createTask";
-//	}
 
 
 }
